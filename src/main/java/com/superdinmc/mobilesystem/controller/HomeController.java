@@ -16,4 +16,8 @@ public class HomeController {
     public String AllProduct() {
         return "all-products";
     }
+    @GetMapping("/404")
+    public String notFound() {
+        return "forward:/error";
+    }
 }

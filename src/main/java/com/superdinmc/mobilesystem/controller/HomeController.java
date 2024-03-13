@@ -16,8 +16,19 @@ public class HomeController {
     public String AllProduct() {
         return "all-products";
     }
-    @GetMapping("/404")
-    public String notFound() {
-        return "forward:/error";
+
+    @GetMapping("/bestseller")
+    public String BestSeller() {
+        return "bestseller";
     }
+
+    @GetMapping("/newproduct")
+    public String NewProduct() {
+        return "newproduct";
+    }
+
+//    @GetMapping("/404")
+//    public String notFound() {
+//        return "forward:/error";
+//    }
 }

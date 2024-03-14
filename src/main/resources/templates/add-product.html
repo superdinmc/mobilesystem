@@ -10,15 +10,11 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" rel="stylesheet">
+
     <style>
         .container {
             margin-left: 0px;
             padding-top: 56px;
-        }
-        .table-entry {
-            padding-top:0px;
-            padding-bottom:0px;
-            width:0px
         }
     </style>
 </head>
@@ -76,8 +72,7 @@
             </button>
         </li>
         <li>
-            <button aria-pressed="true" class="dropdown-item d-flex align-items-center active"
-                    data-bs-theme-value="auto"
+            <button aria-pressed="true" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
                     type="button">
                 <svg class="bi me-2 opacity-50" height="1em" width="1em">
                     <use href="#circle-half"></use>
@@ -121,27 +116,26 @@
     </div>
 </nav>
 <div class="container">
-    <a class="btn btn-success" onclick="return confirm('ต้องการเพิ่มสินค้าหรือใหม่')" th:href="@{/add-product}"
-       type="button">เพิ่มสินค้า</a>
-    <table class="table table-striped table-hover table-bordered">
-        <thead>
-        <tr>
-            <th scope="col">ชื่อสินค้า</th>
-            <th scope="col">ราคาสินค้า</th>
-            <th scope="col">ภาพสินค้า</th>
-            <th scope="col">การจัดการ</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="pro: ${products}">
-            <th scope="row" th:text="${pro.name}"></th>
-            <td th:text="${pro.price}"></td>
-            <td class="text-center table-entry">
-                <img style="height:41px" th:alt="${pro.name}" th:src="@{'/images/' + ${pro.image}}">
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">เพิ่มรายการสินค้า</h1>
+            <form method="post" th:action="@{/save-product}" th:object="${product}">
+                <div class="mb-3">
+                    <label class="form-label" for="name">ชื่อสินค้า</label>
+                    <input class="form-control" id="name" th:field="*{name}" type="text">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">ราคาสินค้า</label>
+                    <input class="form-control" id="price" th:field="*{price}" type="number">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">ภาพสินค้า</label>
+                    <input class="form-control" id="image" th:field="*{image}" type="text">
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>

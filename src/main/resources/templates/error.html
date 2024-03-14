@@ -106,7 +106,7 @@
                     <a class="nav-link" th:href="@{/bestseller}">Best Seller</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/AllProducts}">All Product</a>
+                    <a class="nav-link" th:href="@{/products}">All Product</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -118,9 +118,8 @@
 </nav>
 <main class="container">
     <h1 style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%)">
-        <h1>Error</h1>
-        <br>
-        <code class="error" th:text="${exception}"/>
+        Error
+        <!--<code class="error" th:text="${exception}"/>-->
     </h1>
 </main>
 </body>

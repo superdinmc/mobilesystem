@@ -19,6 +19,9 @@ public class Product {
     @Column(name = "image")
     public String image;
 
+    public Product() {
+    }
+
     public Product(int id, String name, double price, String image) {
         this.id = id;
         this.name = name;

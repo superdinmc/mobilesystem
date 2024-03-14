@@ -118,7 +118,9 @@
 </nav>
 <main class="container">
     <h1 style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%)">
-        <li class="error" th:each="err : ${#fields.errors('fullName')}" th:text="${err}"/>
+        <h1>Error</h1>
+        <br>
+        <code class="error" th:text="${exception}"/>
     </h1>
 </main>
 </body>
